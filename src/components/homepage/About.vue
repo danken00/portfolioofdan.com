@@ -28,6 +28,7 @@
           </template>
         </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -72,6 +73,7 @@ export default {
   background-color: white;
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
   padding-top: 60px;
+  position: relative;
 
   @media (min-width: 992px) {
     padding-top: 70px;
@@ -135,9 +137,10 @@ export default {
 
     .key-tech {
       height: 20px;
-      margin: 8px 17px;
+      margin: 10px 17px;
       display: inline-block;
     }
   }
+
 }
 </style>
