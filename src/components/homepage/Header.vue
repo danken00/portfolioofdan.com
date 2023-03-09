@@ -1,9 +1,13 @@
 <template>
-  <div class="row">
-    <div class="col-12 header background-gradient">
-      <div class="header-images">
-        <img :src="require('@/assets/images/homepage/dan.png')" class="image-dan">
-        <img :src="require('@/assets/images/homepage/slashes-truncated.png')" class="image-slashes">
+  <div class="background-gradient">
+    <div class="container-lg">
+      <div class="row">
+        <div class="col-12 header">
+          <div class="header-images">
+            <img :src="require('@/assets/images/homepage/dan.png')" class="image-dan">
+            <img :src="require('@/assets/images/homepage/slashes-truncated.png')" class="image-slashes">
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -33,7 +37,7 @@ export default {
 
     img.image-dan {
       width: 179px;
-      opacity: 85%;
+      opacity: 90%;
       position: absolute;
       top: 0px;
       right: 0px;
