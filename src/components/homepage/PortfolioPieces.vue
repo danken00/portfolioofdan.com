@@ -2,18 +2,20 @@
   <div class="background-gradient portfolio-pieces">
     <div class="container-lg">
 
-<!--      <div class="post-header-images">-->
-<!--        <img :src="require('@/assets/images/homepage/kennedy.png')" class="image-kennedy">-->
-<!--        &lt;!&ndash;            <img :src="require('@/assets/images/homepage/slashes-truncated.png')" class="image-slashes">&ndash;&gt;-->
-<!--      </div>-->
+      <!--      <div class="post-header-images">-->
+      <!--        <img :src="require('@/assets/images/homepage/kennedy.png')" class="image-kennedy">-->
+      <!--        &lt;!&ndash;            <img :src="require('@/assets/images/homepage/slashes-truncated.png')" class="image-slashes">&ndash;&gt;-->
+      <!--      </div>-->
 
       <template v-for="(item, index) in portfolioPieces" :key="index">
         <div class="portfolio-item">
-          <div class="row portfolio-item-number">
-            <div class="col-sm-12 col-lg-5">{{ item.number }}</div>
+          <div class="row portfolio-item-number text-start text-lg-end">
+            <div class="col-sm-12 col-lg-5">
+              <Numbers :number="item.number"/>
+            </div>
           </div>
           <div class="row">
-            <div class="col-sm-12 col-lg-5 order-0.order-lg-last portfolio-item-image">
+            <div class="col-sm-12 col-lg-6 order-0.order-lg-last portfolio-item-image">
               <img :src="require('@/assets/images/portfolio/' + item.imageName)"
                    alt="Screenshot of {{ item.name }} project"
                    class="img-fluid">
@@ -33,8 +35,13 @@
 </template>
 
 <script>
+import Numbers from './components/Numbers.vue'
+
 export default {
   name: 'PortfolioPieces',
+  components: {
+    Numbers
+  },
   data() {
     return {
       portfolioPieces: [
@@ -67,6 +74,30 @@ export default {
 
   @media (min-width: 992px) {
     margin-bottom: 60px;
+  }
+
+  .portfolio-item-number {
+    z-index: 100;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portfolio-item-number::after {
+    content: '';
+    background: url('~@/assets/images/homepage/slashes.png') center/cover no-repeat;
+    background-size: auto 42px;
+    background-position: 0px 0px;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    left: 180px;
+    height: 42px;
+    width: 200px;
+
+    @media (min-width: 992px) {
+      display: none;
+    }
   }
 
   .portfolio-item-meta {
@@ -114,6 +145,7 @@ export default {
 .background-gradient {
   background-image: linear-gradient(to left, #c0c4cd, #8f90a0);
 }
+
 //
 //.portfolio-pieces {
 //  .container-lg {
