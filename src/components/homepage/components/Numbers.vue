@@ -19,7 +19,7 @@ export default {
       return this.number.toString().split('')
     },
     chooseRandomColour() {
-      const strings = ['pink', 'green']//, 'blue'];
+      const strings = ['pink']//, 'green', 'blue'];
       const randomIndex = Math.floor(Math.random() * strings.length);
       return strings[randomIndex];
     }
@@ -36,7 +36,7 @@ export default {
   .number {
     background: url('~@/assets/images/homepage/number-sprite.png') center/cover no-repeat;
     background-size: 417px 175px;
-    height: 44px;
+    height: 45px;
     width: 100px;
     display: inline-block;
     background-position-y: 0px;
@@ -99,7 +99,7 @@ export default {
 
   &.green {
     .number {
-      background-position-y: -62px;
+      background-position-y: -61px;
     }
   }
 

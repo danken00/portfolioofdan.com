@@ -5,15 +5,15 @@
         <div class="col-sm-12 col-lg-2 text-center">
           <div class="photo"></div>
         </div>
-        <div class="col-sm-12 col-lg-5 about-list"><h3>About</h3>
+        <div class="col-sm-12 col-lg-5 col-xl-4 about-list"><h3>About</h3>
           <table>
             <tr v-for="(item, index) in listAbout" :key="index">
               <th>{{ item.title }}</th>
-              <td>{{ item.value }}</td>
+              <td v-html="item.value"></td>
             </tr>
           </table>
         </div>
-        <div class="col-sm-12 col-lg-5 about-list"><h3>Core</h3>
+        <div class="col-sm-12 col-lg-5 col-xl-4 about-list"><h3>Core</h3>
           <table>
             <tr v-for="(item, index) in listCore" :key="index">
               <th>{{ item.title }}</th>
@@ -28,7 +28,6 @@
           </template>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -43,7 +42,7 @@ export default {
         {title: 'Current location', value: 'UAE (7 years)'},
         {title: 'Availability', value: 'Immediate'},
         {title: 'Visa', value: 'Self-supplied'},
-        {title: 'More info', value: 'Download CV as .pdf'}
+        {title: 'More info', value: '<a href="">Download CV as .pdf</a>'}
       ],
       listCore: [
         {title: 'Software', value: 'Full-stack, T-shaped developer'},
@@ -110,6 +109,8 @@ export default {
 
   .about-list {
     text-align: left;
+    padding-left: 30px;
+    padding-right: 30px;
 
     table {
       width: 100%;
@@ -134,6 +135,7 @@ export default {
     margin-top: 15px;
     border-top: 1px solid #EEE;
     padding: 35px 30px 35px 30px;
+    text-align: center;
 
     .key-tech {
       height: 20px;
@@ -141,6 +143,6 @@ export default {
       display: inline-block;
     }
   }
-
 }
+
 </style>

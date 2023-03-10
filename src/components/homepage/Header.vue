@@ -16,13 +16,9 @@
 <script>
 export default {
   name: 'Header',
-  props: {
-    // msg: String
-  }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .header {
   min-height: 180px;
@@ -32,7 +28,7 @@ export default {
   .header-images {
     height: 100px;
     position: absolute;
-    right: 30px;
+    right: 30%;
     bottom: -42px;
 
     img.image-dan {
