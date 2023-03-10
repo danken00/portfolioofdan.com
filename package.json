@@ -2,10 +2,13 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://danken00.github.io/portfolioofdan.com/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.2.1",
