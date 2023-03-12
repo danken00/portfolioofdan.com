@@ -37,7 +37,7 @@ export default {
 
 .contact-buttons-mobile {
   position: fixed;
-  bottom: 100px;
+  bottom: 30px;
   right: 20px;
   width: 62px;
   height: 108px;

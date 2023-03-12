@@ -13,14 +13,14 @@
           <div class="portfolio-item">
             <div class="row portfolio-item-number text-start text-lg-end">
               <div class="col-sm-12 col-lg-5">
-                <Numbers :number="item.number"/>
+                <Numbers :number="getPortfolioItemNumber(index)"/>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12 col-lg-6 order-0.order-lg-last portfolio-item-image">
-                <img :src="require('@/assets/images/portfolio/' + item.imageName)"
-                     alt="Screenshot of {{ item.name }} project"
-                     class="img-fluid">
+                <v-lazy-image :src="require('@/assets/images/portfolio/' + item.imageName)"
+                              alt="Screenshot of {{ item.name }} project"
+                              class="img-fluid"/>
               </div>
               <div class="col-sm-12 col-lg-3 offset-lg-2 order-lg-first portfolio-item-meta"><h3>{{
                   item.name
@@ -45,29 +45,194 @@
 <script>
 import Numbers from './components/Numbers.vue'
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import VLazyImage from "v-lazy-image";
 
 export default {
   name: 'PortfolioPieces',
   components: {
     Numbers,
-    FontAwesomeIcon
+    FontAwesomeIcon,
+    VLazyImage
   },
   data() {
     return {
       portfolioPieces: [
         {
-          number: 39,
+          name: '___',
+          description: 'iOS and Android, hyper-secure chat and video application.',
+          imageName: 'security.png'
+        },
+        {
           name: 'U by Emaar',
           description: 'Full concept exploration, design, build and launch of Emaar\'s benefits program.',
           imageName: 'u-by-emaar.png'
         },
-        {number: 38, name: 'Masdar Sustainability City', description: '', imageName: 'masdar.png'},
         {
-          number: 37, name: 'Stillmind', description: 'Full website build, custom theme on Wordpress.', imageName:
-                  'stillmind.png'
+          name: 'Masdar Sustainability City',
+          description: 'Website for Masdar Sustainability City in Abu Dhabi.',
+          imageName: 'masdar.png'
         },
-        {number: 36, name: 'Yas Marina Circuit', description: '', imageName: 'yas.png'},
+        {
+          name: 'Stillmind',
+          description: 'Full website build, custom theme on Wordpress.',
+          imageName: 'stillmind.png'
+        },
+        {
+          name: 'Yas Marina Circuit',
+          description: 'Ongoing support and improvement of full CMS and CRM integration.',
+          imageName: 'yas.png'
+        },
+        {
+          name: 'GEMS Education, MENA',
+          description: 'Ongoing support and improvement of full CMS and CRM integration for 48 websites.',
+          imageName: 'gems.png'
+        },
+        {
+          name: 'Mayordomo (butler)',
+          description: 'Integrated, cloud-based smart-locker system.',
+          imageName: 'mayordomo.jpg'
+        },
+        {
+          name: 'Lavalocker',
+          description: 'Website for a smart-laundry locker company, based in Barcelona.',
+          imageName: 'lavalocker.jpg'
+        },
+        {
+          name: 'Carphone Warehouse interactive price scraper',
+          description: '"Big data" competitor trade-in and product price scraper.',
+          imageName: 'price-scraper.jpg'
+        },
+        {
+          name: 'nocowboys.co.nz (version 3)',
+          description: 'Website based in New Zealand that allows rating of tradesmen and tendering for jobs.',
+          imageName: 'nocowboys3.jpg'
+        },
+        {
+          name: 'World Economic Forum interactive infographic',
+          description: 'Fully interactive, full-screen infographic for World Economic Forum\'s annual economic report.',
+          imageName: 'wef.gif'
+        },
+        {
+          name: 'TigerBeer.co.uk',
+          description: 'TigerBeer UK.',
+          imageName: 'tiger.jpg'
+        },
+        {
+          name: 'Facebook game with Casio and Red Bull Racing',
+          description: 'Facebook Formula1 qualifying game.',
+          imageName: 'casio.jpg'
+        },
+        {
+          name: 'Nectar Daily Deal Hunt.com',
+          description: 'Social media game, hunting prizes physically and online using Google Streetview.',
+          imageName: 'nectar.jpg'
+        },
+        {
+          name: 'Serge',
+          description: 'Wordpress instance for digital and strategic agency.',
+          imageName: 'serge.jpg'
+        },
+        {
+          name: 'Bulmers holding pages (winter and autumn)',
+          description: 'Holding pages for Bulmers with dynamic snow and leaves.',
+          imageName: 'bulmers.jpg'
+        },
+        {
+          name: 'Howies.co.uk',
+          description: 'Website build using the Magento CMS.',
+          imageName: 'howies.jpg'
+        },
+        {
+          name: 'ABF Ingredients Group',
+          description: 'Five separate websites using the same template for the ABF Ingredients group of companies.',
+          imageName: 'abf.gif'
+        },
+        {
+          name: 'Azadeh Design Studio',
+          description: 'Website for an up-and-coming furniture designer based in Canada.',
+          imageName: 'azadehdesignstudio.jpg'
+        },
+        {
+          name: 'T-Mobile - Life is for Sharing',
+          description: 'Showcase of advertisements and campaigns for T-Mobile.',
+          imageName: 't-mobile.jpg'
+        },
+        {
+          name: 'Eric Whitacre World Map',
+          description: 'Custom Wordpress plugin that brings together YouTube and Google Earth.',
+          imageName: 'ericwhitacre.jpg'
+        },
+        {
+          name: 'decca.com',
+          description: 'Completion of the Decca website.',
+          imageName: 'decca.jpg'
+        },
+        {
+          name: 'O2 guardianship intranet',
+          description: 'Internal campaign management system for O2 and Telefonica.',
+          imageName: 'guardianship.jpg'
+        },
+        {
+          name: 'karmichaelgroup.com',
+          description: 'My second project for the Karmichael Group, an executive/career coaching and success company.',
+          imageName: 'karmichael.jpg'
+        },
+        {
+          name: 'nexgen-solutions.com',
+          description: 'Online sales website for innovative hi-fi hardware.',
+          imageName: 'nexgen.gif'
+        },
+        {
+          name: 'empirestatepm.com',
+          description: 'Complete project management website.',
+          imageName: 'empirestatenew.gif'
+        },
+        {
+          name: 'domotea.com (version 2)',
+          description: 'My second website for this matcha tea company based in Canada.',
+          imageName: 'domo2.gif'
+        },
+        {
+          name: 'dedecehome.com',
+          description: 'Showcase of products for this designer furniture company.',
+          imageName: 'dedece1.gif'
+        },
+        {
+          name: 'domotea.com',
+          description: 'First iteration for this matcha tea company based in Canada.',
+          imageName: 'dedece1.gif'
+        },
+        {
+          name: 'lunarbuggy.com',
+          description: 'Multi-user blog system built in PHP5 with MySQL, CSS & Google Maps. Includes bespoke CMS.',
+          imageName: 'lunarbuggy1.gif'
+        },
+        {
+          name: 'westernsouthland.co.nz',
+          description: 'Community-based website for increasing tourism to the south of New Zealand.',
+          imageName: 'westernsouthland1.gif'
+        },
+        {
+          name: 'LiveStock',
+          description:
+                  'Windows-based software for managing stock, clients and bookings. Currently in use. Built in Delphi & Firebird.',
+          imageName: 'livestock1.gif'
+        },
+        {
+          name: 'HumanCargo Apparel',
+          description: 'Content managed website for showcasing and selling this designer\'s tee-shirts.',
+          imageName: 'humancargo1.gif'
+        },
+        {
+          name: 'Dnasoft',
+          description: 'Website for a small group of software developers based in New Zealand.',
+          imageName: 'dnasoft1.gif'
+        }
       ]
+    }
+  }, methods: {
+    getPortfolioItemNumber(currentIndex) {
+      return this.portfolioPieces.length - currentIndex;
     }
   }
 }
@@ -119,7 +284,7 @@ export default {
     }
 
     .portfolio-item {
-      margin-bottom: 120px;
+      margin-bottom: 90px;
 
       @media (min-width: 992px) {
         margin-bottom: 60px;
@@ -183,11 +348,12 @@ export default {
       }
 
       .portfolio-item-image {
-        margin-bottom: 35px;
+        margin-bottom: 15px;
 
         img {
           box-shadow: 0 0 80px rgba(0, 0, 0, 0.35);
           max-width: 100%;
+          border-radius: 6px;
         }
       }
     }
