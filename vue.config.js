@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/portfolioofdan.com/'
+  publicPath: '/'
 };
