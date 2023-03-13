@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
-read -p "Are you sure? Have you committed your work? This will delete anything not committed! " -n 1 -r
+echo "Are you sure? Have you committed your work? This will delete anything not committed!"
+echo " "
+read -p "y/n: " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
