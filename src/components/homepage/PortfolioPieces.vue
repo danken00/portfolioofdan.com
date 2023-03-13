@@ -58,9 +58,19 @@ export default {
     return {
       portfolioPieces: [
         {
-          name: '___',
-          description: 'iOS and Android, hyper-secure chat and video application.',
+          name: 'MDBX Health',
+          description: 'Health tech startup. Full website, app and deployment + pipelines.',
+          imageName: 'mdbx.png'
+        },
+        {
+          name: '<N/A>',
+          description: 'iOS and Android, hyper-secure chat and video application for government and military.',
           imageName: 'security.png'
+        },
+        {
+          name: 'yascycles.com',
+          description: 'Website design and build for local cycling store.',
+          imageName: 'yas-cycles.png'
         },
         {
           name: 'U by Emaar',
