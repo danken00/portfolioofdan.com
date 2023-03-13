@@ -42,7 +42,10 @@ export default {
         {title: 'Current location', value: 'UAE (7 years)'},
         {title: 'Availability', value: 'Immediate'},
         {title: 'Visa', value: 'Self-supplied'},
-        {title: 'More info', value: '<a href="">Download CV as .pdf</a>'}
+        {
+          title: 'More info',
+          value: '<a href="/cvs/dan_kennedy_00410.pdf" target="_blank">Download CV as .pdf</a>'
+        }
       ],
       listCore: [
         {title: 'Software', value: 'Full-stack, T-shaped developer'},
