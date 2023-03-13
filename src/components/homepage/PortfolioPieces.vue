@@ -243,7 +243,6 @@ export default {
 .portfolio-pieces {
   position: relative;
 
-
   .post-header-images {
     height: 100px;
     width: 250px;
@@ -278,13 +277,15 @@ export default {
 
   .portfolio-item-wrapper {
     padding-top: 175px;
+    padding-left: 12px;
+    padding-right: 12px;
 
     @media (min-width: 992px) {
       padding-top: 125px;
     }
 
     .portfolio-item {
-      margin-bottom: 90px;
+      margin-bottom: 80px;
 
       @media (min-width: 992px) {
         margin-bottom: 60px;
@@ -326,12 +327,14 @@ export default {
 
         h3 {
           text-transform: uppercase;
-          font-size: 2rem;
+          font-size: 1.7rem;
+          font-weight: 700;
           letter-spacing: -0.1rem;
           overflow-wrap: anywhere;
 
           @media (min-width: 992px) {
             margin-bottom: 40px;
+            font-size: 2rem;
           }
         }
 
@@ -349,7 +352,7 @@ export default {
       }
 
       .portfolio-item-image {
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         max-width: 640px;
         max-height: 480px;
 
@@ -357,6 +360,17 @@ export default {
           box-shadow: 0 0 80px rgba(0, 0, 0, 0.35);
           max-width: 100%;
           border-radius: 6px;
+        }
+
+        .v-lazy-image {
+          opacity: 0;
+          transform: translate3d(0, 15px, 0);
+          transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .v-lazy-image-loaded {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
         }
       }
     }

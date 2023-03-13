@@ -1,3 +1,10 @@
 module.exports = {
-  publicPath: '/'
+  publicPath: '/',
+  pages: {
+    index: {
+      // entry for the page
+      entry: 'src/main.js',
+      title: 'Dan\'s portfolio',
+    },
+  }
 };
