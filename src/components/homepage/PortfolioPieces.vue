@@ -254,7 +254,7 @@ export default {
         if (bounding.top >= 0 &&
                 bounding.left >= 0 &&
                 bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-                bounding.bottom - Math.round(bounding.top / 3) <= (window.innerHeight ||
+                bounding.bottom - Math.round(bounding.height * 0.75) <= (window.innerHeight ||
                         document.documentElement.clientHeight)
         ) {
           element.classList.add('fader-image-loaded')
@@ -396,7 +396,7 @@ export default {
 
           &.fader {
             opacity: 0;
-            transform: translate3d(0, 15px, 0);
+            transform: translate3d(0, 30px, 0);
             transition: opacity 0.5s, transform 0.5s;
           }
 
