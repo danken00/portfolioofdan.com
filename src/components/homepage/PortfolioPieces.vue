@@ -103,7 +103,7 @@ export default {
           imageName: 'price-scraper.jpg'
         },
         {
-          name: 'nocowboys.co.nz (version 3)',
+          name: 'nocowboys .co.nz (version 3)',
           description: 'Website based in New Zealand that allows rating of tradesmen and tendering for jobs.',
           imageName: 'nocowboys3.jpg'
         },
@@ -113,7 +113,7 @@ export default {
           imageName: 'wef.gif'
         },
         {
-          name: 'TigerBeer.co.uk',
+          name: 'TigerBeer .co.uk',
           description: 'TigerBeer UK.',
           imageName: 'tiger.jpg'
         },
@@ -173,17 +173,17 @@ export default {
           imageName: 'guardianship.jpg'
         },
         {
-          name: 'karmichaelgroup.com',
+          name: 'karmichael group .com',
           description: 'My second project for the Karmichael Group, an executive/career coaching and success company.',
           imageName: 'karmichael.jpg'
         },
         {
-          name: 'nexgen-solutions.com',
+          name: 'nexgen-solutions .com',
           description: 'Online sales website for innovative hi-fi hardware.',
           imageName: 'nexgen.gif'
         },
         {
-          name: 'empirestatepm.com',
+          name: 'empirestatepm .com',
           description: 'Complete project management website.',
           imageName: 'empirestatenew.gif'
         },
@@ -193,22 +193,22 @@ export default {
           imageName: 'domo2.gif'
         },
         {
-          name: 'dedecehome.com',
+          name: 'dedecehome .com',
           description: 'Showcase of products for this designer furniture company.',
           imageName: 'dedece1.gif'
         },
         {
           name: 'domotea.com',
           description: 'First iteration for this matcha tea company based in Canada.',
-          imageName: 'dedece1.gif'
+          imageName: 'domo1.gif'
         },
         {
-          name: 'lunarbuggy.com',
+          name: 'lunarbuggy .com',
           description: 'Multi-user blog system built in PHP5 with MySQL, CSS & Google Maps. Includes bespoke CMS.',
           imageName: 'lunarbuggy1.gif'
         },
         {
-          name: 'westernsouthland.co.nz',
+          name: 'westernsouthland .co.nz',
           description: 'Community-based website for increasing tourism to the south of New Zealand.',
           imageName: 'westernsouthland1.gif'
         },
@@ -328,6 +328,7 @@ export default {
           text-transform: uppercase;
           font-size: 2rem;
           letter-spacing: -0.1rem;
+          overflow-wrap: anywhere;
 
           @media (min-width: 992px) {
             margin-bottom: 40px;
@@ -349,6 +350,8 @@ export default {
 
       .portfolio-item-image {
         margin-bottom: 15px;
+        max-width: 640px;
+        max-height: 480px;
 
         img {
           box-shadow: 0 0 80px rgba(0, 0, 0, 0.35);
