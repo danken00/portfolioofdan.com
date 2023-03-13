@@ -18,9 +18,9 @@
             </div>
             <div class="row">
               <div class="col-sm-12 col-lg-6 order-0.order-lg-last portfolio-item-image">
-                <v-lazy-image :src="require('@/assets/images/portfolio/' + item.imageName)"
-                              alt="Screenshot of {{ item.name }} project"
-                              class="img-fluid"/>
+                <img :src="require('@/assets/images/portfolio/' + item.imageName)"
+                     alt="Screenshot of {{ item.name }} project"
+                     class="img-fluid portfolio-piece-image fader" loading="lazy" width="640" height="480"/>
               </div>
               <div class="col-sm-12 col-lg-3 offset-lg-2 order-lg-first portfolio-item-meta"><h3>{{
                   item.name
@@ -45,14 +45,12 @@
 <script>
 import Numbers from './components/Numbers.vue'
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import VLazyImage from "v-lazy-image";
 
 export default {
   name: 'PortfolioPieces',
   components: {
     Numbers,
-    FontAwesomeIcon,
-    VLazyImage
+    FontAwesomeIcon
   },
   data() {
     return {
@@ -243,8 +241,33 @@ export default {
   }, methods: {
     getPortfolioItemNumber(currentIndex) {
       return this.portfolioPieces.length - currentIndex;
+    },
+    updatePortfolioImageVisibility() {
+      // Get the portfolio images that haven't yet been shown
+      const hidden_elements = document.querySelectorAll('img.portfolio-piece-image:not(.fader-image-loaded)');
+
+      // Get the bounding client rectangle position in the viewport
+      hidden_elements.forEach(function (element) {
+
+        const bounding = element.getBoundingClientRect();
+
+        if (bounding.top >= 0 &&
+                bounding.left >= 0 &&
+                bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+                bounding.bottom - Math.round(bounding.top / 3) <= (window.innerHeight ||
+                        document.documentElement.clientHeight)
+        ) {
+          element.classList.add('fader-image-loaded')
+        }
+      });
     }
-  }
+  },
+  created() {
+    window.addEventListener('scroll', this.updatePortfolioImageVisibility);
+  },
+  unmounted() {
+    window.removeEventListener('scroll', this.updatePortfolioImageVisibility);
+  },
 }
 </script>
 
@@ -370,17 +393,17 @@ export default {
           box-shadow: 0 0 80px rgba(0, 0, 0, 0.35);
           max-width: 100%;
           border-radius: 6px;
-        }
 
-        .v-lazy-image {
-          opacity: 0;
-          transform: translate3d(0, 15px, 0);
-          transition: opacity 0.5s, transform 0.5s;
-        }
+          &.fader {
+            opacity: 0;
+            transform: translate3d(0, 15px, 0);
+            transition: opacity 0.5s, transform 0.5s;
+          }
 
-        .v-lazy-image-loaded {
-          opacity: 1;
-          transform: translate3d(0, 0, 0);
+          &.fader-image-loaded {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+          }
         }
       }
     }
