@@ -3,13 +3,15 @@
     <div class="container-lg">
       <div class="contact-panel-desktop">
         <div class="label"></div>
-        <div class="contact-type contact-type-phone">
-          <font-awesome-icon icon="phone"></font-awesome-icon>
-          <span>(971) 561 588 611</span>
-        </div>
-        <div class="contact-type contact-type-email">
-          <font-awesome-icon icon="envelope"></font-awesome-icon>
-          <span><a href="mailto:dan@mojoplease.com">dan@mojoplease.com</a></span>
+        <div class="contact-details">
+          <div class="contact-type contact-type-phone">
+            <font-awesome-icon icon="phone"></font-awesome-icon>
+            <span>(971) 561 588 611</span>
+          </div>
+          <div class="contact-type contact-type-email">
+            <font-awesome-icon icon="envelope"></font-awesome-icon>
+            <span><a href="mailto:dan@mojoplease.com">dan@mojoplease.com</a></span>
+          </div>
         </div>
       </div>
 
@@ -379,7 +381,7 @@ export default {
     getPortfolioItemNumber(currentIndex) {
       return this.portfolioPieces.length - currentIndex;
     },
-    updatePortfolioImageVisibility() {
+    onScroll() {
       // Get the portfolio images that haven't yet been shown
       const hidden_elements = document.querySelectorAll('img.portfolio-piece-image:not(.fader-image-loaded)');
 
@@ -397,10 +399,27 @@ export default {
           element.classList.add('fader-image-loaded')
         }
       });
+
+      // Fade the contact details on scroll
+      const aboutPanel = document.querySelector('.about')
+      const contactDetailsPanel = document.querySelector('.contact-details')
+      const aboutPanelBounding = aboutPanel.getBoundingClientRect()
+      const fadePixelLength = 600;
+      let contactOpacity = 0;
+
+      if (aboutPanelBounding.bottom > 0) {
+        contactOpacity = 0
+      } else if (aboutPanelBounding.bottom < (0 - fadePixelLength)) {
+        contactOpacity = 1
+      } else {
+        contactOpacity = (1 / fadePixelLength) * aboutPanelBounding.bottom
+      }
+
+      contactDetailsPanel.style.opacity = String(Math.abs(contactOpacity))
     }
   },
   created() {
-    window.addEventListener('scroll', this.updatePortfolioImageVisibility);
+    window.addEventListener('scroll', this.onScroll);
   },
   unmounted() {
     window.removeEventListener('scroll', this.updatePortfolioImageVisibility);
@@ -598,12 +617,12 @@ export default {
 
     .contact-type {
       padding: 0 0 4px 5px;
-      color: #E2E2E2;
+      color: #EEE;
       font-size: 14px;
-      font-weight: normal;
+      font-weight: 300;
 
       a {
-        color: #E2E2E2;
+        color: #EEE;
         text-decoration: none;
 
         &:hover {
