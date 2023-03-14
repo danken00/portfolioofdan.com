@@ -5,7 +5,7 @@
         <div class="label"></div>
         <div class="contact-type contact-type-phone">
           <font-awesome-icon icon="phone"></font-awesome-icon>
-          <span>(0971) 561 588 611</span>
+          <span>(971) 561 588 611</span>
         </div>
         <div class="contact-type contact-type-email">
           <font-awesome-icon icon="envelope"></font-awesome-icon>
@@ -54,7 +54,7 @@
         <font-awesome-icon icon="heart"></font-awesome-icon>
         , but mostly just hard work. ©2023.<br>Most of these projects were done through amazing agencies filled with
         amazing people. Thanks!<br>
-        Call me on (0561) 588 611 or email me at <a href="mailto:dan@mojoplease.com">dan@mojoplease.com</a>.
+        Call me on (971) 561 588 611 or email me at <a href="mailto:dan@mojoplease.com">dan@mojoplease.com</a>.
       </footer>
     </div>
   </div>
