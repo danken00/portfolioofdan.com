@@ -43,7 +43,8 @@
         Made with a little bit of
         <font-awesome-icon icon="heart"></font-awesome-icon>
         , but mostly just hard work. ©2023.<br>Most of these projects were done through amazing agencies filled with
-        amazing people. Thanks!
+        amazing people. Thanks!<br>
+        Call me on (0561) 588 611 or email me at <a href="mailto:dan@mojoplease.com">dan@mojoplease.com</a>.
       </footer>
     </div>
   </div>
@@ -539,15 +540,15 @@ export default {
 
       .badges {
         z-index: 10;
-        
-        @media (min-width: 992px) {
-          opacity: 0.5;
-          transition: opacity 0.3s;
 
-          &:hover {
-            opacity: 1;
-          }
-        }
+        //@media (min-width: 992px) {
+        //  opacity: 0.5;
+        //  transition: opacity 0.3s;
+        //
+        //  &:hover {
+        //    opacity: 1;
+        //  }
+        //}
 
         .badge {
           margin: 0 2px;
@@ -591,11 +592,23 @@ export default {
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
-    color: #CCC;
+    color: #DDD;
     font-size: 12px;
 
     svg {
       color: #ff6472;
+    }
+
+
+  }
+}
+
+#app footer {
+  a {
+    color: #DDD;
+
+    &:hover {
+      text-decoration: none;
     }
   }
 }
