@@ -22,10 +22,17 @@
                      alt="Screenshot of {{ item.name }} project"
                      class="img-fluid portfolio-piece-image fader" loading="lazy" width="640" height="480"/>
               </div>
-              <div class="col-sm-12 col-lg-3 offset-lg-2 order-lg-first portfolio-item-meta"><h3>{{
-                  item.name
-                }}</h3>
+              <div class="col-sm-12 col-lg-3 offset-lg-2 order-lg-first portfolio-item-meta"><h3
+                      v-html="item.name"></h3>
                 <p>{{ item.description }}</p>
+                <div class="badges">
+                  <span v-for="(tool, toolIndex) in [...new Set(item.tools)]" :key="toolIndex"
+                        class="badge rounded-pill badge-tool">
+                    {{ tool }}</span>
+                  <span v-for="(skill, skillIndex) in [...new Set(item.skills)]" :key="skillIndex"
+                        class="badge rounded-pill badge-skill">
+                    {{ skill }}</span>
+                </div>
                 <img :src="require('@/assets/images/homepage/slashes.png')" class="image-slashes">
               </div>
             </div>
@@ -46,6 +53,42 @@
 import Numbers from './components/Numbers.vue'
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+const Tools = Object.freeze({
+  'aws': 'AWS',
+  'django': 'Django',
+  'flutter': 'Flutter',
+  'jira': 'Jira',
+  'python': 'Python',
+  'mysql': 'MySQL',
+  'mongoDb': 'MongoDB',
+  'wordpress': 'Wordpress',
+  'digitalOcean': 'Digital Ocean',
+  'vueJs': 'Vue JS',
+  'scss': 'SCSS',
+  'bi': 'BI',
+  'iosAndroid': 'iOS/Android',
+  'webkit': 'WebKit',
+  'umbraco': 'Umbraco',
+  'sitecore': 'Sitecore',
+  'cicd': 'CI/CD',
+  'php': 'PHP Laravel/Zend',
+  'js': 'Javascript',
+  'html': 'HTML',
+  'delphi': 'Pascal Delphi'
+});
+const Skills = Object.freeze({
+  'architecture': 'Architecture',
+  'agile': 'Agile',
+  'scrumCoach': 'Scrum coach',
+  'devOps': 'DevOps',
+  'leadDeveloper': 'Lead developer',
+  'transformation': 'Digital transformation',
+  'design': 'Design',
+  'pm': 'Project management',
+  'clientManagement': 'Client management',
+  'sysadmin': 'Sysadmin'
+});
+
 export default {
   name: 'PortfolioPieces',
   components: {
@@ -58,183 +101,266 @@ export default {
         {
           name: 'MDBX Health',
           description: 'Health tech startup. Full website, app and deployment + pipelines.',
-          imageName: 'mdbx.png'
+          imageName: 'mdbx.png',
+          tools: [Tools.aws, Tools.django, Tools.flutter, Tools.mysql, Tools.vueJs, Tools.iosAndroid, Tools.cicd],
+          skills: [Skills.architecture, Skills.scrumCoach, Skills.devOps, Skills.leadDeveloper, Skills.sysadmin]
         },
         {
-          name: '<N/A>',
+          name: '<span class="muted">*****</span>',
           description: 'iOS and Android, hyper-secure chat and video application for government and military.',
-          imageName: 'security.png'
+          imageName: 'security.jpg',
+          tools: [Tools.jira, Tools.bi, Tools.iosAndroid],
+          skills: [Skills.architecture, Skills.agile, Skills.scrumCoach, Skills.transformation, Skills.pm]
         },
         {
           name: 'yascycles.com',
           description: 'Website design and build for local cycling store.',
-          imageName: 'yas-cycles.png'
+          imageName: 'yas-cycles.jpg',
+          tools: [Tools.wordpress, Tools.digitalOcean, Tools.scss, Tools.webkit],
+          skills: [Skills.clientManagement, Skills.pm, Skills.design, Skills.sysadmin]
         },
         {
           name: 'U by Emaar',
           description: 'Full concept exploration, design, build and launch of Emaar\'s benefits program.',
-          imageName: 'u-by-emaar.png'
+          imageName: 'u-by-emaar.png',
+          tools: [Tools.jira, Tools.sitecore],
+          skills: [Skills.pm, Skills.agile, Skills.scrumCoach, Skills.transformation, Skills.clientManagement]
         },
         {
           name: 'Masdar Sustainability City',
           description: 'Website for Masdar Sustainability City in Abu Dhabi.',
-          imageName: 'masdar.png'
+          imageName: 'masdar.png',
+          tools: [Tools.sitecore, Tools.jira],
+          skills: [Skills.agile, Skills.scrumCoach, Skills.pm, Skills.clientManagement]
         },
         {
           name: 'Stillmind',
           description: 'Full website build, custom theme on Wordpress.',
-          imageName: 'stillmind.png'
+          imageName: 'stillmind.png',
+          tools: [Tools.wordpress, Tools.digitalOcean, Tools.cicd, Tools.webkit, Tools.scss],
+          skills: [Skills.design, Skills.leadDeveloper, Skills.pm, Skills.sysadmin]
         },
         {
           name: 'Yas Marina Circuit',
           description: 'Ongoing support and improvement of full CMS and CRM integration.',
-          imageName: 'yas.png'
+          imageName: 'yas.jpg',
+          tools: [Tools.umbraco, Tools.jira],
+          skills: [Skills.pm, Skills.clientManagement, Skills.leadDeveloper, Skills.transformation, Skills.design,
+            Skills.agile, Skills.scrumCoach, Skills.sysadmin]
         },
         {
           name: 'GEMS Education, MENA',
           description: 'Ongoing support and improvement of full CMS and CRM integration for 48 websites.',
-          imageName: 'gems.png'
+          imageName: 'gems.png',
+          tools: [Tools.umbraco, Tools.jira, Tools.scss, Tools.webkit],
+          skills: [Skills.pm, Skills.clientManagement, Skills.leadDeveloper, Skills.agile, Skills.scrumCoach]
         },
         {
           name: 'Mayordomo (butler)',
-          description: 'Integrated, cloud-based smart-locker system.',
-          imageName: 'mayordomo.jpg'
+          description: 'Greenfield startup. Integrated, cloud-based smart-locker system.',
+          imageName: 'mayordomo.jpg',
+          tools: [Tools.php, Tools.wordpress, Tools.scss, Tools.cicd, Tools.digitalOcean, Tools.jira, Tools.mysql],
+          skills: [Skills.design, Skills.architecture, Skills.agile, Skills.scrumCoach, Skills.leadDeveloper,
+            Skills.transformation, Skills.pm, Skills.clientManagement, Skills.sysadmin]
         },
         {
           name: 'Lavalocker',
           description: 'Website for a smart-laundry locker company, based in Barcelona.',
-          imageName: 'lavalocker.jpg'
+          imageName: 'lavalocker.jpg',
+          tools: [Tools.php, Tools.wordpress, Tools.scss, Tools.cicd, Tools.digitalOcean, Tools.jira, Tools.mysql],
+          skills: [Skills.design, Skills.architecture, Skills.agile, Skills.scrumCoach, Skills.leadDeveloper,
+            Skills.transformation, Skills.pm, Skills.clientManagement, Skills.sysadmin]
         },
         {
           name: 'Carphone Warehouse interactive price scraper',
-          description: '"Big data" competitor trade-in and product price scraper.',
-          imageName: 'price-scraper.jpg'
+          description: 'Competitor trade-in and product price scraper.',
+          imageName: 'price-scraper.jpg',
+          tools: [Tools.php, Tools.mongoDb, Tools.jira, Tools.scss, Tools.webkit],
+          skills: [Skills.architecture, Skills.agile, Skills.scrumCoach, Skills.devOps, Skills.design, Skills.sysadmin]
         },
         {
           name: 'nocowboys .co.nz (version 3)',
-          description: 'Website based in New Zealand that allows rating of tradesmen and tendering for jobs.',
-          imageName: 'nocowboys3.jpg'
+          description: 'Startup website based in New Zealand that allows rating of tradesmen and tendering for jobs.',
+          imageName: 'nocowboys3.jpg',
+          tools: [Tools.jira, Tools.wordpress, Tools.scss, Tools.php, Tools.cicd],
+          skills: [Skills.architecture, Skills.agile, Skills.scrumCoach, Skills.devOps, Skills.leadDeveloper,
+            Skills.transformation, Skills.design, Skills.pm, Skills.clientManagement, Skills.sysadmin]
         },
         {
           name: 'World Economic Forum interactive infographic',
           description: 'Fully interactive, full-screen infographic for World Economic Forum\'s annual economic report.',
-          imageName: 'wef.gif'
+          imageName: 'wef.gif',
+          tools: [Tools.wordpress],
+          skills: [Skills.design, Skills.clientManagement, Skills.sysadmin]
         },
         {
           name: 'TigerBeer .co.uk',
           description: 'TigerBeer UK.',
-          imageName: 'tiger.jpg'
+          imageName: 'tiger.jpg',
+          tools: [Tools.wordpress],
+          skills: [Skills.leadDeveloper, Skills.agile, Skills.scrumCoach]
         },
         {
           name: 'Facebook game with Casio and Red Bull Racing',
           description: 'Facebook Formula1 qualifying game.',
-          imageName: 'casio.jpg'
+          imageName: 'casio.jpg',
+          tools: [Tools.js, Tools.html, Tools.scss],
+          skills: [Skills.leadDeveloper, Skills.agile, Skills.scrumCoach]
         },
         {
           name: 'Nectar Daily Deal Hunt.com',
           description: 'Social media game, hunting prizes physically and online using Google Streetview.',
-          imageName: 'nectar.jpg'
+          imageName: 'nectar.jpg',
+          tools: [Tools.js, Tools.html, Tools.scss],
+          skills: [Skills.leadDeveloper, Skills.agile, Skills.scrumCoach]
         },
         {
           name: 'Serge',
           description: 'Wordpress instance for digital and strategic agency.',
-          imageName: 'serge.jpg'
+          imageName: 'serge.jpg',
+          tools: [Tools.wordpress],
+          skills: [Skills.clientManagement, Skills.pm, Skills.sysadmin]
+        },
+        {
+          name: 'Glasses Direct',
+          description: 'Lead developer for startup online glasses retailer.',
+          imageName: 'glassesdirect.jpg',
+          tools: [Tools.php, Tools.jira, Tools.scss, Tools.html, Tools.js],
+          skills: [Skills.leadDeveloper, Skills.pm, Skills.agile, Skills.design, Skills.sysadmin]
         },
         {
           name: 'Bulmers holding pages (winter and autumn)',
           description: 'Holding pages for Bulmers with dynamic snow and leaves.',
-          imageName: 'bulmers.jpg'
+          imageName: 'bulmers.jpg',
+          tools: [Tools.js, Tools.html, Tools.scss],
+          skills: [Skills.design]
         },
         {
           name: 'Howies.co.uk',
           description: 'Website build using the Magento CMS.',
-          imageName: 'howies.jpg'
+          imageName: 'howies.jpg',
+          tools: [Tools.js, Tools.html, Tools.scss],
+          skills: []
         },
         {
           name: 'ABF Ingredients Group',
           description: 'Five separate websites using the same template for the ABF Ingredients group of companies.',
-          imageName: 'abf.gif'
+          imageName: 'abf.gif',
+          tools: [Tools.wordpress, Tools.digitalOcean, Tools.jira],
+          skills: [Skills.clientManagement, Skills.pm, Skills.architecture, Skills.sysadmin]
         },
         {
           name: 'Azadeh Design Studio',
           description: 'Website for an up-and-coming furniture designer based in Canada.',
-          imageName: 'azadehdesignstudio.jpg'
+          imageName: 'azadehdesignstudio.jpg',
+          tools: [Tools.html, Tools.js, Tools.scss],
+          skills: []
         },
         {
           name: 'T-Mobile - Life is for Sharing',
           description: 'Showcase of advertisements and campaigns for T-Mobile.',
-          imageName: 't-mobile.jpg'
+          imageName: 't-mobile.jpg',
+          tools: [Tools.html, Tools.js, Tools.scss],
+          skills: []
         },
         {
           name: 'Eric Whitacre World Map',
           description: 'Custom Wordpress plugin that brings together YouTube and Google Earth.',
-          imageName: 'ericwhitacre.jpg'
+          imageName: 'ericwhitacre.jpg',
+          tools: [Tools.html, Tools.js, Tools.scss, Tools.wordpress],
+          skills: [Skills.architecture]
         },
         {
           name: 'decca.com',
           description: 'Completion of the Decca website.',
-          imageName: 'decca.jpg'
+          imageName: 'decca.jpg',
+          tools: [Tools.html, Tools.js, Tools.scss, Tools.php],
+          skills: [Skills.pm]
         },
         {
           name: 'O2 guardianship intranet',
           description: 'Internal campaign management system for O2 and Telefonica.',
-          imageName: 'guardianship.jpg'
+          imageName: 'guardianship.jpg',
+          tools: [Tools.html, Tools.js, Tools.scss],
+          skills: [Skills.pm, Skills.sysadmin]
         },
         {
           name: 'karmichael group .com',
           description: 'My second project for the Karmichael Group, an executive/career coaching and success company.',
-          imageName: 'karmichael.jpg'
+          imageName: 'karmichael.jpg',
+          tools: [Tools.wordpress],
+          skills: [Skills.clientManagement, Skills.pm]
         },
         {
           name: 'nexgen-solutions .com',
           description: 'Online sales website for innovative hi-fi hardware.',
-          imageName: 'nexgen.gif'
+          imageName: 'nexgen.gif',
+          tools: [Tools.wordpress],
+          skills: [Skills.sysadmin]
         },
         {
           name: 'empirestatepm .com',
           description: 'Complete project management website.',
-          imageName: 'empirestatenew.gif'
+          imageName: 'empirestatenew.gif',
+          tools: [Tools.html, Tools.js, Tools.scss, Tools.php],
+          skills: [Skills.leadDeveloper, Skills.design, Skills.architecture, Skills.sysadmin]
         },
         {
           name: 'domotea.com (version 2)',
           description: 'My second website for this matcha tea company based in Canada.',
-          imageName: 'domo2.gif'
+          imageName: 'domo2.gif',
+          tools: [Tools.wordpress],
+          skills: []
         },
         {
           name: 'dedecehome .com',
           description: 'Showcase of products for this designer furniture company.',
-          imageName: 'dedece1.gif'
+          imageName: 'dedece1.gif',
+          tools: [Tools.html, Tools.js, Tools.scss],
+          skills: []
         },
         {
           name: 'domotea.com',
           description: 'First iteration for this matcha tea company based in Canada.',
-          imageName: 'domo1.gif'
+          imageName: 'domo1.gif',
+          tools: [Tools.wordpress],
+          skills: []
         },
         {
           name: 'lunarbuggy .com',
           description: 'Multi-user blog system built in PHP5 with MySQL, CSS & Google Maps. Includes bespoke CMS.',
-          imageName: 'lunarbuggy1.gif'
+          imageName: 'lunarbuggy1.gif',
+          tools: [Tools.html, Tools.js, Tools.scss, Tools.php],
+          skills: [Skills.design]
         },
         {
           name: 'westernsouthland .co.nz',
           description: 'Community-based website for increasing tourism to the south of New Zealand.',
-          imageName: 'westernsouthland1.gif'
+          imageName: 'westernsouthland1.gif',
+          tools: [Tools.html, Tools.js, Tools.scss, Tools.php],
+          skills: [Skills.design]
         },
         {
           name: 'LiveStock',
           description:
                   'Windows-based software for managing stock, clients and bookings. Currently in use. Built in Delphi & Firebird.',
-          imageName: 'livestock1.gif'
+          imageName: 'livestock1.gif',
+          tools: [Tools.delphi],
+          skills: [Skills.design]
         },
         {
           name: 'HumanCargo Apparel',
           description: 'Content managed website for showcasing and selling this designer\'s tee-shirts.',
-          imageName: 'humancargo1.gif'
+          imageName: 'humancargo1.gif',
+          tools: [Tools.html, Tools.js, Tools.scss],
+          skills: []
         },
         {
           name: 'Dnasoft',
           description: 'Website for a small group of software developers based in New Zealand.',
-          imageName: 'dnasoft1.gif'
+          imageName: 'dnasoft1.gif',
+          tools: [Tools.html, Tools.js, Tools.scss],
+          skills: [Skills.design]
         }
       ]
     }
@@ -369,6 +495,10 @@ export default {
             margin-bottom: 40px;
             font-size: 2rem;
           }
+
+          .muted {
+            color: #EEE;
+          }
         }
 
         .image-slashes {
@@ -403,6 +533,33 @@ export default {
           &.fader-image-loaded {
             opacity: 1;
             transform: translate3d(0, 0, 0);
+          }
+        }
+      }
+
+      .badges {
+        z-index: 10;
+        
+        @media (min-width: 992px) {
+          opacity: 0.5;
+          transition: opacity 0.3s;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        .badge {
+          margin: 0 2px;
+          font-weight: normal;
+          font-size: 0.7rem;
+
+          &.badge-tool {
+            background-color: #58d2ad;
+          }
+
+          &.badge-skill {
+            background-color: #25c8cc;
           }
         }
       }
