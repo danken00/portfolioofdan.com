@@ -1,7 +1,17 @@
 <template>
   <div class="background-gradient portfolio-pieces">
     <div class="container-lg">
-      <div class="contact-panel-desktop"></div>
+      <div class="contact-panel-desktop">
+        <div class="label"></div>
+        <div class="contact-type contact-type-phone">
+          <font-awesome-icon icon="phone"></font-awesome-icon>
+          <span>(0971) 561 588 611</span>
+        </div>
+        <div class="contact-type contact-type-email">
+          <font-awesome-icon icon="envelope"></font-awesome-icon>
+          <span><a href="mailto:dan@mojoplease.com">dan@mojoplease.com</a></span>
+        </div>
+      </div>
 
       <div class="post-header-images">
         <img :src="require('@/assets/images/homepage/kennedy.png')" class="image-kennedy">
@@ -573,13 +583,39 @@ export default {
 
   .contact-panel-desktop {
     position: sticky;
-    top: 0px;
-    background: url('~@/assets/images/homepage/dan-kennedy-label.png') center/cover no-repeat;
     width: 248px;
-    height: 76px;
-    z-index: 200;
     display: none;
+    z-index: 200;
     opacity: 0.9;
+    top: 0px;
+
+    .label {
+      background: url('~@/assets/images/homepage/dan-kennedy-label.png') center/cover no-repeat;
+      width: 248px;
+      height: 76px;
+      margin-bottom: 2px;
+    }
+
+    .contact-type {
+      padding: 0 0 4px 5px;
+      color: #E2E2E2;
+      font-size: 14px;
+      font-weight: normal;
+
+      a {
+        color: #E2E2E2;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      svg {
+        color: #bebfc8;
+        width: 40px;
+      }
+    }
 
     @media (min-width: 992px) {
       display: block;
@@ -598,8 +634,6 @@ export default {
     svg {
       color: #ff6472;
     }
-
-
   }
 }
 
