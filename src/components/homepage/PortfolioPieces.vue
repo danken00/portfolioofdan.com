@@ -69,11 +69,11 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 const Tools = Object.freeze({
   'aws': 'AWS',
   'django': 'Django',
-  'flutter': 'Flutter',
+  'flutter': '🐤 Flutter',
   'jira': 'Jira',
-  'python': 'Python',
-  'mysql': 'MySQL',
-  'mongoDb': 'MongoDB',
+  'python': '🐍 Python',
+  'mysql': '🐬 MySQL',
+  'mongoDb': '🍃 MongoDB',
   'wordpress': 'Wordpress',
   'digitalOcean': 'Digital Ocean',
   'vueJs': 'Vue JS',
@@ -84,10 +84,11 @@ const Tools = Object.freeze({
   'umbraco': 'Umbraco',
   'sitecore': 'Sitecore',
   'cicd': 'CI/CD',
-  'php': 'PHP Laravel/Zend',
+  'php': '🐘 PHP Laravel/Zend',
   'js': 'Javascript',
   'html': 'HTML',
-  'delphi': 'Pascal Delphi'
+  'delphi': 'Pascal Delphi',
+  'docker': '🐳 Docker'
 });
 const Skills = Object.freeze({
   'architecture': 'Architecture',
@@ -99,7 +100,7 @@ const Skills = Object.freeze({
   'design': 'Design',
   'pm': 'Project management',
   'clientManagement': 'Client management',
-  'sysadmin': 'Sysadmin'
+  'sysadmin': '🐧 Sysadmin'
 });
 
 export default {
@@ -115,7 +116,8 @@ export default {
           name: 'MDBX Health',
           description: 'Health tech startup. Full website, app and deployment + pipelines.',
           imageName: 'mdbx.png',
-          tools: [Tools.aws, Tools.django, Tools.flutter, Tools.mysql, Tools.vueJs, Tools.iosAndroid, Tools.cicd],
+          tools: [Tools.aws, Tools.django, Tools.flutter, Tools.docker, Tools.mysql, Tools.vueJs, Tools.iosAndroid,
+            Tools.cicd],
           skills: [Skills.architecture, Skills.scrumCoach, Skills.devOps, Skills.leadDeveloper, Skills.sysadmin]
         },
         {
@@ -150,7 +152,7 @@ export default {
           name: 'Stillmind',
           description: 'Full website build, custom theme on Wordpress.',
           imageName: 'stillmind.png',
-          tools: [Tools.wordpress, Tools.digitalOcean, Tools.cicd, Tools.webkit, Tools.scss],
+          tools: [Tools.wordpress, Tools.docker, Tools.digitalOcean, Tools.cicd, Tools.webkit, Tools.scss],
           skills: [Skills.design, Skills.leadDeveloper, Skills.pm, Skills.sysadmin]
         },
         {
