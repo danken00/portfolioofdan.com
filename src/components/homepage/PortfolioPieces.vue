@@ -116,8 +116,8 @@ export default {
           name: 'MDBX Health',
           description: 'Health tech startup. Full website, app and deployment + pipelines.',
           imageName: 'mdbx.png',
-          tools: [Tools.aws, Tools.django, Tools.flutter, Tools.docker, Tools.mysql, Tools.vueJs, Tools.iosAndroid,
-            Tools.cicd],
+          tools: [Tools.aws, Tools.python, Tools.django, Tools.flutter, Tools.docker, Tools.mysql, Tools.vueJs,
+            Tools.iosAndroid, Tools.cicd],
           skills: [Skills.architecture, Skills.scrumCoach, Skills.devOps, Skills.leadDeveloper, Skills.sysadmin]
         },
         {
