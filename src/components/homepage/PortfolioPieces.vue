@@ -131,7 +131,7 @@ export default {
           name: 'yascycles.com',
           description: 'Website design and build for local cycling store.',
           imageName: 'yas-cycles.jpg',
-          tools: [Tools.wordpress, Tools.digitalOcean, Tools.scss, Tools.webkit],
+          tools: [Tools.wordpress, Tools.docker, Tools.digitalOcean, Tools.scss, Tools.webkit],
           skills: [Skills.clientManagement, Skills.pm, Skills.design, Skills.sysadmin]
         },
         {
