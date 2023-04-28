@@ -1,15 +1,13 @@
-name: 'Bump Version'
-
+name: 'Bump version and tag/release'
 on:
   push:
     branches:
-      - 'master'
+      - 'develop'
 permissions: write-all
 jobs:
   bump-version:
-    name: 'Bump Version on master'
+    name: 'Bump version and tag/release'
     runs-on: ubuntu-latest
-
     steps:
       - name: 'Checkout source code'
         uses: 'actions/checkout@v2'
@@ -17,7 +15,7 @@ jobs:
           ref: ${{ github.ref }}
       - name: 'cat package.json'
         run: cat ./package.json
-      - name: 'Automated Version Bump'
+      - name: 'Automated version bump'
         id: version-bump
         uses: 'phips28/gh-action-bump-version@master'
         with:
@@ -26,12 +24,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'cat package.json'
         run: cat ./package.json
-      - name: 'Output Step'
+      - name: 'Output step'
         env:
           NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
         run: echo "new tag $NEW_TAG"
       - uses: ncipollo/release-action@v1
+        name: 'Create release from recently created tag'
         with:
-#          artifacts: "release.tar.gz,foo/*.txt"
-#          bodyFile: "body.md"
           tag: ${{ steps.version-bump.outputs.newTag }}
