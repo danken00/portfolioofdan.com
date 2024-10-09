@@ -24,7 +24,7 @@
         <div class="key-technologies">
           <template v-for="(item, index) in keyTech" :key="index">
             <img :src="require('@/assets/images/homepage/tools/' + item.imageName)" class="key-tech"
-                 title="{{ item.title }}">
+                 :title="item.title">
           </template>
         </div>
       </div>
@@ -39,9 +39,9 @@ export default {
     return {
       listAbout: [
         {title: 'Origin (+passport)', value: 'New Zealand (+UK)'},
-        {title: 'Current location', value: 'UAE (7 years)'},
-        {title: 'Availability', value: 'Immediate'},
-        {title: 'Visa', value: 'Self-supplied'},
+        {title: 'Current location', value: 'UAE (8 years)'},
+        {title: 'Availability', value: '2 weeks'},
+        // {title: 'Visa', value: 'Self-supplied'},
         {
           title: 'More info',
           value: '<a href="/cvs/dan_kennedy_00410.pdf" target="_blank">Download CV as .pdf</a>'
@@ -49,8 +49,8 @@ export default {
       ],
       listCore: [
         {title: 'Software', value: 'Full-stack, T-shaped developer'},
-        {title: 'Tech stack', value: 'Python, web, Flutter, AWS'},
-        {title: 'Leadership', value: 'Tech director, digital transformations'},
+        {title: 'Tech stack', value: 'Python, web, Flutter, AWS, AI'},
+        {title: 'Leadership', value: 'Tech leader, digital transformations'},
         {title: 'Practices', value: 'CI/CD/Dev-ops'},
         {title: 'Methodologies', value: 'Agile, certified Scrum Master'}
       ],
