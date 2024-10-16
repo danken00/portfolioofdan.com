@@ -38,13 +38,14 @@ export default {
   data() {
     return {
       listAbout: [
+        {title: 'Titles', value: 'CTO, director, lead'},
         {title: 'Origin (+passport)', value: 'New Zealand (+UK)'},
         {title: 'Current location', value: 'UAE (8 years)'},
         {title: 'Availability', value: '2 weeks'},
         // {title: 'Visa', value: 'Self-supplied'},
         {
           title: 'More info',
-          value: '<a href="/cvs/dan_kennedy_00410.pdf" target="_blank">Download CV as .pdf</a>'
+          value: '<a href="/cvs/cv_dan_kennedy_00420.pdf" target="_blank">Download CV as .pdf</a>'
         }
       ],
       listCore: [
